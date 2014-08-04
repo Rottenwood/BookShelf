@@ -4,66 +4,55 @@ bookshelf_main:
 
 ajax:
     path:     /ajax
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:ajax }
     requirements: { _method: POST }
 
 ajax_book_list:
     path:   /api/book/list
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:getBookList }
     requirements: { _method: POST }
 
 ajax_book_list_all:
     path:   /api/book/listall
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:getBookListAll }
     requirements: { _method: POST }
 
 ajax_book_create_in_shelf:
     path:   /api/book/createinshelf
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookCreateInShelf }
     requirements: { _method: POST }
 
 ajax_book_create:
     path:   /api/book/create
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookCreate }
     requirements: { _method: POST }
 
 ajax_book_edit:
     path:   /api/book/edit
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookEdit }
     requirements: { _method: POST }
 
 ajax_book_delete:
     path:   /api/book/delete
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookDelete }
     requirements: { _method: POST }
 
 ajax_shelf_list:
     path:   /api/shelf/list
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:getShelfs }
     requirements: { _method: POST }
 
 ajax_shelf_create:
     path:   /api/shelf/create
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:shelfCreate }
     requirements: { _method: POST }
 
 ajax_shelf_edit:
     path:   /api/shelf/edit
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookShelfEdit }
     requirements: { _method: POST }
 
 ajax_shelf_delete:
     path:   /api/shelf/delete
-    host: utopua.ml
     defaults: { _controller: PetrBookshelfBundle:Ajax:bookShelfDelete }
     requirements: { _method: POST }
