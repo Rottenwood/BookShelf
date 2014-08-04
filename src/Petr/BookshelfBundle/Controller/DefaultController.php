@@ -16,7 +16,6 @@ class DefaultController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction() {
-        $em = $this->getDoctrine()->getManager();
 
         return $this->render('PetrBookshelfBundle:Default:index.html.twig');
     }
