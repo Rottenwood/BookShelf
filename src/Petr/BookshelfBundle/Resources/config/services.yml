@@ -1,0 +1,8 @@
+parameters:
+    bookshelf.bookservice.class: Petr\BookshelfBundle\Service\BookService
+
+services:
+    # сервис работы с книгами
+    book:
+        class:  %bookshelf.bookservice.class%
+        arguments:  [@doctrine.orm.entity_manager]

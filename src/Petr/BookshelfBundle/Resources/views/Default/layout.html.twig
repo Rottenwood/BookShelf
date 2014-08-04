@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BookShelf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    {# Favicon #}
+    {#<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">#}
+    {# jQuery #}
+    {#<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    {#<script src="http://malsup.github.com/jquery.form.js"></script>#}
+    {# Стили #}
+    <link type="text/css" href="{{ asset('assets/css/css-reset.css') }}" rel="stylesheet"/>
+    <link type="text/css" href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
+    {# Шрифты #}
+    <link type="text/css" href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet"/>
+    {# Скрипты #}
+    {#<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">#}
+    <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap-confirmation.js') }}"></script>
+</head>
+<body>
+
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>

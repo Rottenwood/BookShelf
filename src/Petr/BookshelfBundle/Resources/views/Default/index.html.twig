@@ -1,0 +1,208 @@
+{% extends 'PetrBookshelfBundle:Default:layout.html.twig' %}
+
+{% block content %}
+
+    <div id="systemmessage"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 header">Книжная полка</div>
+            <div class="col-md-3 bookshelfselect">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"><span id="dropdownMenuLabel">Выбор библиотеки</span> <span class="caret"></span>
+                    </button>
+                    <ul id="bookshelflist" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li class="shelf" role="presentation"></li>
+                        <li role="presentation" class="divider"></li>
+                        <li id="createshelfselectbutton" role="presentation" data-toggle="modal" data-target="#addbookshelfmodal" data-placement="top" rel="tooltip"><a role="menuitem" tabindex="-1" href="#">Добавить библиотеку</a></li>
+                        <li id="allbooksselectbutton" role="presentation"><a role="menuitem" tabindex="-1" href="#">Все книги</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 bookshelfselect">
+                <button id="addbookheaderbutton" type="button" class="btn btn-primary" data-title="Newbook"
+                        data-toggle="modal"
+                        data-target="#addbook" data-placement="top" rel="tooltip">Добавить книгу
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="table-responsive">
+
+                    {# js-таблица #}
+
+                    <div id="booklist"></div>
+                    <div class="clearfix"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{###### модальные окна ######}
+
+    {# добавление книги #}
+    <div class="modal fade" id="addbook" tabindex="-1" role="dialog" aria-labelledby="addbook" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Добавить новую книгу</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="booknameadd" class="form-control" type="text" placeholder="Название">
+                    </div>
+                    <div class="form-group">
+
+                        <input id="bookauthoradd" class="form-control bookauthor" type="text" placeholder="Автор">
+                    </div>
+
+                </div>
+                <div class="modal-footer ">
+                    <button id="addbookbutton" type="button" class="btn btn-success btn-lg" style="width: 100%;"><span
+                                class="glyphicon
+                    glyphicon-ok-sign"></span> Добавить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# редактирование книги #}
+    <div class="modal fade" id="editbook" tabindex="-1" role="dialog" aria-labelledby="editbook" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Обновить информацию о книге</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="booknameedit" class="form-control " type="text" placeholder="Название">
+                    </div>
+                    <div class="form-group">
+
+                        <input id="bookauthoredit" class="form-control " type="text" placeholder="Автор">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="editbookbutton" type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Обновить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# удаление книги #}
+    <div class="modal fade" id="deletebook" tabindex="-1" role="dialog" aria-labelledby="deletebook" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Удалить книгу</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>
+                        Вы действительно ходите удалить эту книгу?
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="deletebookbutton" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-ok-sign"></span> Да
+                    </button>
+                    <button id="cancelmodalbutton" type="button" class="btn btn-warning"><span class="glyphicon
+                    glyphicon-remove"></span> Нет
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# добавление библиотеки #}
+    <div class="modal fade" id="addbookshelfmodal" tabindex="-1" role="dialog" aria-labelledby="addbookshelfmodal"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Добавить новую библиотеку</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="shelfnameadd" class="form-control" type="text" placeholder="Название">
+                    </div>
+
+                </div>
+                <div class="modal-footer ">
+                    <button id="addbookshelfmodalbutton" type="button" class="btn btn-success btn-lg" style="width:
+                    100%;
+                    "><span
+                                class="glyphicon
+                    glyphicon-ok-sign"></span> Добавить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# редактирование библиотеки #}
+    <div class="modal fade" id="editbookshelfmodal" tabindex="-1" role="dialog" aria-labelledby="editbookshelfmodal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Редактирование библиотеки</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="bookshelfnameedit" class="form-control " type="text" placeholder="Название">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="editbookshelfmodalbutton" type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Обновить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# удаление библиотеки #}
+    <div class="modal fade" id="deletebookshelfmodal" tabindex="-1" role="dialog" aria-labelledby="deletebookshelfmodal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title custom_align" id="Heading">Удалить библиотеку</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span>
+                        Вы действительно ходите удалить библиотеку?
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="deletebookshelfbutton" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-ok-sign"></span> Да
+                    </button>
+                    <button id="cancelmodalbutton" type="button" class="btn btn-warning"><span class="glyphicon
+                    glyphicon-remove"></span> Нет
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#deletebookshelfmodal#}
+
+{% endblock content %}

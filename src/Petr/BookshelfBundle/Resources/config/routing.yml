@@ -1,0 +1,48 @@
+bookshelf_main:
+    path:     /
+    defaults: { _controller: PetrBookshelfBundle:Default:index }
+
+ajax:
+    path:     /ajax
+    defaults: { _controller: PetrBookshelfBundle:Ajax:ajax }
+#    requirements: { _method: POST }
+
+ajax_book_list:
+    path:   /api/book/list
+    defaults: { _controller: PetrBookshelfBundle:Ajax:getBookList }
+
+ajax_book_list_all:
+    path:   /api/book/listall
+    defaults: { _controller: PetrBookshelfBundle:Ajax:getBookListAll }
+
+ajax_book_create_in_shelf:
+    path:   /api/book/createinshelf
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookCreateInShelf }
+
+ajax_book_create:
+    path:   /api/book/create
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookCreate }
+
+ajax_book_edit:
+    path:   /api/book/edit
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookEdit }
+
+ajax_book_delete:
+    path:   /api/book/delete
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookDelete }
+
+ajax_shelf_list:
+    path:   /api/shelf/list
+    defaults: { _controller: PetrBookshelfBundle:Ajax:getShelfs }
+
+ajax_shelf_create:
+    path:   /api/shelf/create
+    defaults: { _controller: PetrBookshelfBundle:Ajax:shelfCreate }
+
+ajax_shelf_edit:
+    path:   /api/shelf/edit
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookShelfEdit }
+
+ajax_shelf_delete:
+    path:   /api/shelf/delete
+    defaults: { _controller: PetrBookshelfBundle:Ajax:bookShelfDelete }

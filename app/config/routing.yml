@@ -1,0 +1,4 @@
+petr_bookshelf:
+    resource: "@PetrBookshelfBundle/Resources/config/routing.yml"
+    prefix:   /
+
