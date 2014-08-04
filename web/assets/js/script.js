@@ -322,6 +322,7 @@ $(document).ready(function () {
     $(document).on("click", "#allbooksselectbutton", function (event) {
         event.preventDefault();
         getBookListAll();
+        $("#dropdownMenuLabel").html("Выбор библиотеки");
     });
 
 
