@@ -45,10 +45,9 @@ class AjaxController extends Controller {
 
     /**
      * Ajax API: список всех книг
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @return JsonResponse
      */
-    public function getBookListAllAction(Request $request) {
+    public function getBookListAllAction() {
         $em = $this->getDoctrine()->getManager();
         $books = $em->getRepository("PetrBookshelfBundle:Book")->findAll();
 
