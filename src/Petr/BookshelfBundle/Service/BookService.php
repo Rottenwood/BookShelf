@@ -28,8 +28,6 @@ class BookService {
      * @return bool
      */
     public function createBook($bookname, $author) {
-//        $bookname = "Test";
-//        $author = "Test";
         $bookExist = $this->bookRepository->findBookAndAuthor($bookname, $author);
 
         $result = array();
