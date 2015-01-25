@@ -1,4 +1,4 @@
-Приложение Bookshelf
+Приложение "Книжная Полка"
 ========================
 
-Тестовое CRUD-приложение на Symfony2, jQuery и Bootstrap.
+CRUD-приложение на Symfony2, jQuery и Bootstrap.
